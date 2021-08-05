@@ -1,0 +1,27 @@
+micronaut:
+  application:
+    name: iupp-integration-demo
+  server:
+    port: 8081
+    context-path: /catalog/manager
+    cors:
+      enabled: true
+  router:
+    versioning:
+      enabled: true
+      default-version: 1
+    endpoints:
+      all:
+        enabled: true
+        sensitive: false
+      health:
+        enabled: true
+        details-visible: ANONYMOUS
+      beans:
+        enabled: true
+      info:
+        enabled: true
+      routes:
+        enabled: true
+api:
+  url: "https://my-json-server.typicode.com/renanhartwigzup/product-repo/products"

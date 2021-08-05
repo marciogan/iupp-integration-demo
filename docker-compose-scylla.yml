@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+
+  iupp-scylladb:
+    image: scylladb/scylla
+    container_name: scylladb
+    ports:
+      - "9042:9042"
+      - "9142:9142"
+      - "9160:9160"
+      - "10000:10000"
+    command: "--smp 1 --memory 750M --overprovisioned 1 --api-address 0.0.0.0"
+    volumes:
+      - scylla:/var/lib/scylla
+
+volumes:
+  scylla:

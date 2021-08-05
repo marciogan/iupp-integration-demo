@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+
+  iupp-catalog-scylladb:
+    build:
+      context: .
+      dockerfile: db/Dockerfile
+    container_name: catalog-manager-scylladb
+    ports:
+      - "9042:9042"
+      - "9142:9142"
+      - "9160:9160"
+      - "10000:10000"
+    command: "--smp 1 --memory 750M --overprovisioned 1"
+    volumes:
+      - scylla:/var/lib/scylla
+    networks:
+      - iupp-network
+
+volumes:
+  scylla:
+
+networks:
+  iupp-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.0.1/16
