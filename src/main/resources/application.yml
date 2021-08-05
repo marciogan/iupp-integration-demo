@@ -3,7 +3,7 @@ micronaut:
     name: iupp-integration-demo
   server:
     port: 8081
-    context-path: /catalog/manager
+    context-path: /integration
     cors:
       enabled: true
   router:
